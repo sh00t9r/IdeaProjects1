@@ -47,7 +47,12 @@ public class Bird {
         } else {
             y -= speed;
         }
-        x += 2;
+        if(y<-height){
+            y = -height;
+        }
+        if (y>height+400){
+            jump= false;
+        }
     }
 
     void draw(Batch batch) {
