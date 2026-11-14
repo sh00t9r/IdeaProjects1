@@ -10,6 +10,7 @@ public class screenGame implements Screen {
     MyGdxgame myGdxGame;
     Bird bird;
     pointcounter pointCounter;
+    backframe Backframe;
     Tier tiers[];
     boolean lose;
     int pts = 0;
@@ -30,6 +31,7 @@ public class screenGame implements Screen {
     @Override
     public void show() {
         pointCounter = new pointcounter(500, 700);
+        Backframe = new backframe();
     }
 
     @Override
@@ -49,6 +51,7 @@ public class screenGame implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         myGdxGame.batch.begin();
+        Backframe.draw(myGdxGame.batch);
         bird.draw(myGdxGame.batch);
         for (Tier t : tiers) {
             t.draw(myGdxGame.batch);
@@ -62,12 +65,13 @@ public class screenGame implements Screen {
                 pts += 1;
 
             }
-        }
 
+        }
+        Backframe.move();
 
         pointCounter.draw(myGdxGame.batch, pts);
         myGdxGame.batch.end();
-}
+    }
 
 
     @Override

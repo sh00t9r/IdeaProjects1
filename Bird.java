@@ -3,6 +3,7 @@ package ru.samsa;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
+
 public class Bird {
 
     int x, y;
@@ -56,8 +57,9 @@ public class Bird {
     }
 
     void draw(Batch batch) {
-        int frameMultiplier = 10;
-        batch.draw(framesArray[frameCounter / frameMultiplier], x, y, width, height);
+        int frameMultiplier = 4;
+
+        batch.draw(framesArray[frameCounter % frameMultiplier], x, y, width, height);
         if (frameCounter++ == framesArray.length * frameMultiplier - 1) frameCounter = 0;
     }
 
