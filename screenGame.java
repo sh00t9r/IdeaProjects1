@@ -58,13 +58,19 @@ public class screenGame implements Screen {
         }
         for (Tier tier : tiers) {
             //bird.x, bird.y, bird.width, bird.height 100, 574 ;
-//            int y2 = tier.y+574+tier.d;
-//            if (bird.y>tier.y+574 && bird.y+bird.height<y2){
-//                lose = false;
-            if(tier.ispointreal(bird)) {
+
+            if (tier.ispointreal(bird)) {
                 pts += 1;
 
             }
+            if(tier.ishit(bird)){
+                System.out.println("hit");
+            }
+//            int y2 = tier.y+574+tier.d;
+//            if (!(bird.y >tier.y+574) && !(bird.y+bird.height<y2)){
+//                System.out.println("hit");
+//                lose = true;
+//        }
 
         }
         Backframe.move();

@@ -57,5 +57,15 @@ public class Tier {
      }
      return false;
     }
+    public boolean ishit(Bird bird){
+        int gapy = d/2+ this.y+this.height;
+
+        if ((bird.x<=this.x+this.width && bird.x+bird.width>=this.x && bird.y<gapy) || (bird.x<=this.x+this.width && bird.x+bird.width>=this.x && bird.y>gapy)){
+           return true;
+          }
+        else {
+            return false;
+        }
+    }
 
 }
